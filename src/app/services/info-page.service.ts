@@ -10,6 +10,7 @@ export class InfoPageService {
   info: InfoPage = {};
   loaded = false;
 
+  loading = true;
   teamwork: any[] = [];
 
   constructor(private http: HttpClient) {
@@ -23,6 +24,7 @@ export class InfoPageService {
       .subscribe((resp: InfoPage) => {
       this.loaded = true;
       this.info = resp;
+      this.loading = false;
     });
   }
 
@@ -31,7 +33,6 @@ export class InfoPageService {
     this.http.get('https://angular-portfolio-e38b1.firebaseio.com/teamwork.json')
       .subscribe((resp: any[]) => {
       this.teamwork = resp;
-      console.log(resp);
     });
   }
 }
