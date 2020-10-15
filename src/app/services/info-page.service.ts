@@ -21,7 +21,7 @@ export class InfoPageService {
   // tslint:disable-next-line: typedef
   private getInfo() {
     this.http.get('assets/data/data-page.json')
-      .subscribe((resp: InfoPage) => {
+    .subscribe((resp: InfoPage) => {
       this.loaded = true;
       this.info = resp;
       this.loading = false;
@@ -31,7 +31,7 @@ export class InfoPageService {
   // tslint:disable-next-line: typedef
   private getTeamwork() {
     this.http.get('https://angular-portfolio-e38b1.firebaseio.com/teamwork.json')
-      .subscribe((resp: any[]) => {
+    .subscribe((resp: any[]) => {
       this.teamwork = resp;
     });
   }

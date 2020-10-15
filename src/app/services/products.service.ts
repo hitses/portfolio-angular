@@ -17,11 +17,14 @@ export class ProductsService {
   // tslint:disable-next-line: typedef
   private getProducts() {
     this.http.get('https://angular-portfolio-e38b1.firebaseio.com/products_idx.json')
-      .subscribe((resp: ProductPage[]) => {
-        console.log(resp);
-
+    .subscribe((resp: ProductPage[]) => {
         this.products = resp;
         this.loading = false;
       });
+  }
+
+  // tslint:disable-next-line: typedef
+  getProduct( id: string) {
+    return this.http.get(`https://angular-portfolio-e38b1.firebaseio.com/products/${id}.json`);
   }
 }
